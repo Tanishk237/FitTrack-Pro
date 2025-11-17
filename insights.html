@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack Pro - Insights & Summary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">FitTrack Pro</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Overview</a></li>
+                <li><a href="activity.html" class="nav-link">Activity Log</a></li>
+                <li><a href="meals.html" class="nav-link">Meal Planner</a></li>
+                <li><a href="insights.html" class="nav-link active">Insights</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>Insights & Summary</h1>
+            <div class="header-actions">
+                <button class="btn btn-primary" id="downloadBtn">Download Summary</button>
+                <button class="btn btn-danger" id="resetBtn">Reset Dashboard</button>
+            </div>
+        </div>
+
+        <div class="insights-grid">
+            <div class="insight-card">
+                <div class="insight-header">
+                    <h2>Weekly Activities</h2>
+                    <span class="insight-subtitle">Total activities per day</span>
+                </div>
+                <div class="bar-chart" id="weeklyActivities">
+                    <div class="chart-bars">
+                        <!-- Bars will be dynamically inserted -->
+                    </div>
+                    <div class="chart-labels">
+                        <span>Mon</span>
+                        <span>Tue</span>
+                        <span>Wed</span>
+                        <span>Thu</span>
+                        <span>Fri</span>
+                        <span>Sat</span>
+                        <span>Sun</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-card">
+                <div class="insight-header">
+                    <h2>Weekly Calories</h2>
+                    <span class="insight-subtitle">Calories burned per day</span>
+                </div>
+                <div class="bar-chart" id="weeklyCalories">
+                    <div class="chart-bars">
+                        <!-- Bars will be dynamically inserted -->
+                    </div>
+                    <div class="chart-labels">
+                        <span>Mon</span>
+                        <span>Tue</span>
+                        <span>Wed</span>
+                        <span>Thu</span>
+                        <span>Fri</span>
+                        <span>Sat</span>
+                        <span>Sun</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-stats">
+            <div class="summary-card">
+                <h3>Total Activities This Week</h3>
+                <div class="summary-value" id="totalActivities">0</div>
+            </div>
+            <div class="summary-card">
+                <h3>Total Calories Burned</h3>
+                <div class="summary-value" id="totalCaloriesBurned">0</div>
+            </div>
+            <div class="summary-card">
+                <h3>Average Daily Steps</h3>
+                <div class="summary-value" id="avgSteps">0</div>
+            </div>
+            <div class="summary-card">
+                <h3>Most Active Day</h3>
+                <div class="summary-value" id="mostActiveDay">-</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; padding: 2.5rem; background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); border-radius: 20px; border: 1px solid #BBF7D0;">
+            <h2 style="color: #15803D; font-weight: 700; margin-bottom: 1rem; font-size: 1.5rem;">Weekly Achievements</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">►</div>
+                    <p style="color: #6B7280; font-weight: 500;">Completed 4 runs this week</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">●</div>
+                    <p style="color: #6B7280; font-weight: 500;">Hydration streak: 5 days</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">★</div>
+                    <p style="color: #6B7280; font-weight: 500;">Exceeded daily goals 3x</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Reset Confirmation Modal -->
+    <div class="modal-overlay" id="resetModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Reset Dashboard</h2>
+                <button class="modal-close" id="closeResetModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to reset all dashboard data? This action cannot be undone.</p>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="cancelResetBtn">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmResetBtn">Reset Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="insights.js"></script>
+</body>
+</html>
+

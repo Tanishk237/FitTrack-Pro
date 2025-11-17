@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack Pro - Meal Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">FitTrack Pro</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Overview</a></li>
+                <li><a href="activity.html" class="nav-link">Activity Log</a></li>
+                <li><a href="meals.html" class="nav-link active">Meal Planner</a></li>
+                <li><a href="insights.html" class="nav-link">Insights</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>Meal Planner</h1>
+            <div class="daily-calories">
+                <span class="calories-label">Daily Total:</span>
+                <span class="calories-value" id="totalCalories">0</span>
+                <span class="calories-label" style="margin-left: 1.5rem;">kcal</span>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 2.5rem; padding: 2rem; background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 100%); border-radius: 16px; border: 1px solid #BAE6FD;">
+            <p style="color: #0369A1; font-weight: 500; margin-bottom: 0.5rem;">Daily Calorie Target</p>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="flex: 1; height: 8px; background: #BAE6FD; border-radius: 4px; overflow: hidden;">
+                    <div style="height: 100%; background: linear-gradient(90deg, #0EA5E9 0%, #06B6D4 100%); width: 65%; border-radius: 4px; animation: slideInLeft 1s ease-out;"></div>
+                </div>
+                <span style="color: #1A1A1A; font-weight: 700; min-width: 50px;">1,560 / 2,400 kcal</span>
+            </div>
+        </div>
+
+        <div class="meals-grid">
+            <div class="meal-section">
+                <div class="meal-header">
+                    <h2>Breakfast</h2>
+                    <button class="btn btn-small" data-meal="breakfast">+ Add Meal</button>
+                </div>
+                <div class="meal-items" id="breakfastItems">
+                    <!-- Breakfast items will be dynamically inserted -->
+                </div>
+            </div>
+
+            <div class="meal-section">
+                <div class="meal-header">
+                    <h2>Lunch</h2>
+                    <button class="btn btn-small" data-meal="lunch">+ Add Meal</button>
+                </div>
+                <div class="meal-items" id="lunchItems">
+                    <!-- Lunch items will be dynamically inserted -->
+                </div>
+            </div>
+
+            <div class="meal-section">
+                <div class="meal-header">
+                    <h2>Dinner</h2>
+                    <button class="btn btn-small" data-meal="dinner">+ Add Meal</button>
+                </div>
+                <div class="meal-items" id="dinnerItems">
+                    <!-- Dinner items will be dynamically inserted -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Meal Modal -->
+    <div class="modal-overlay" id="mealModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Meal Item</h2>
+                <button class="modal-close" id="closeMealModal">&times;</button>
+            </div>
+            <form id="mealForm" class="activity-form">
+                <div class="form-group">
+                    <label for="mealName">Meal Name</label>
+                    <input type="text" id="mealName" required placeholder="e.g., Grilled Chicken, Salad">
+                </div>
+                <div class="form-group">
+                    <label for="mealCalories">Calories</label>
+                    <input type="number" id="mealCalories" required min="1" placeholder="350">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelMealBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Meal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="meals.js"></script>
+</body>
+</html>
+

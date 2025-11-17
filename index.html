@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack Pro - Daily Wellness Overview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">FitTrack Pro</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Overview</a></li>
+                <li><a href="activity.html" class="nav-link">Activity Log</a></li>
+                <li><a href="meals.html" class="nav-link">Meal Planner</a></li>
+                <li><a href="insights.html" class="nav-link">Insights</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <svg width="0" height="0" style="position: absolute;">
+            <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+        <div class="page-header">
+            <h1>Daily Wellness Overview</h1>
+            <div class="live-clock" id="liveClock"></div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="metric-card">
+                <div class="metric-header">
+                    <h3>Steps Taken</h3>
+                </div>
+                <div class="circular-progress" id="stepsProgress">
+                    <svg class="progress-ring" width="200" height="200">
+                        <circle class="progress-ring-circle-bg" cx="100" cy="100" r="80"></circle>
+                        <circle class="progress-ring-circle" id="stepsCircle" cx="100" cy="100" r="80"></circle>
+                    </svg>
+                    <div class="progress-value">
+                        <span id="stepsValue">0</span>
+                        <span class="progress-label">/ 10,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <h3>Calories Burned</h3>
+                </div>
+                <div class="circular-progress" id="caloriesProgress">
+                    <svg class="progress-ring" width="200" height="200">
+                        <circle class="progress-ring-circle-bg" cx="100" cy="100" r="80"></circle>
+                        <circle class="progress-ring-circle" id="caloriesCircle" cx="100" cy="100" r="80"></circle>
+                    </svg>
+                    <div class="progress-value">
+                        <span id="caloriesValue">0</span>
+                        <span class="progress-label">/ 2,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <h3>Water Intake</h3>
+                </div>
+                <div class="circular-progress" id="waterProgress">
+                    <svg class="progress-ring" width="200" height="200">
+                        <circle class="progress-ring-circle-bg" cx="100" cy="100" r="80"></circle>
+                        <circle class="progress-ring-circle" id="waterCircle" cx="100" cy="100" r="80"></circle>
+                    </svg>
+                    <div class="progress-value">
+                        <span id="waterValue">0</span>
+                        <span class="progress-label">/ 8</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-stats">
+            <div class="stat-box">
+                <div class="stat-label">Today's Goal</div>
+                <div class="stat-value" id="goalProgress">75%</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Active Minutes</div>
+                <div class="stat-value" id="activeMinutes">45</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Resting Heart Rate</div>
+                <div class="stat-value" id="heartRate">62 bpm</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div style="background: white; border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.08); border: 1px solid #E5E7EB; animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.7s both;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">◆</div>
+                    <h3 style="font-weight: 700; color: #1A1A1A; margin-bottom: 0.75rem;">Performance</h3>
+                    <p style="color: #6B7280; line-height: 1.6;">Track your fitness metrics and performance trends throughout the week.</p>
+                </div>
+                <div style="background: white; border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.08); border: 1px solid #E5E7EB; animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.8s both;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">▬</div>
+                    <h3 style="font-weight: 700; color: #1A1A1A; margin-bottom: 0.75rem;">Analytics</h3>
+                    <p style="color: #6B7280; line-height: 1.6;">Visualize your wellness journey with detailed charts and insights.</p>
+                </div>
+                <div style="background: white; border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.08); border: 1px solid #E5E7EB; animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.9s both;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">✓</div>
+                    <h3 style="font-weight: 700; color: #1A1A1A; margin-bottom: 0.75rem;">Goals</h3>
+                    <p style="color: #6B7280; line-height: 1.6;">Set personalized health goals and monitor your progress daily.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
